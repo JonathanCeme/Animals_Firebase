@@ -7,8 +7,7 @@ const HomePage = () => {
     <ImageBackground
       source={{ uri: 'https://us.123rf.com/450wm/marinavorontsova/marinavorontsova1607/marinavorontsova160700015/59642497-vaca-caballo-oveja-cabra-cerdo-ganso-gallo-pollo-ilustraci%C3%B3n-vectorial-de-los-animales-de.jpg?ver=6' }}
       style={styles.background}
-    >
-      <KeyboardAvoidingView
+    >      <KeyboardAvoidingView
         style={styles.container}
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       >
@@ -50,11 +49,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 40,
-    marginTop: 30,
+    marginTop: 0,
     resizeMode: 'cover',
   },
   logoContainer: {
-    marginTop: 20,
+    marginTop: -90,
     marginBottom: 30,
     borderRadius: 100,
     overflow: 'hidden',

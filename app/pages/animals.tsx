@@ -5,7 +5,8 @@ import { Link } from "expo-router"; // Importa Link de expo-router
 import { collection, doc, getDocs, getFirestore, setDoc } from "firebase/firestore"; // importa las funciones de firestore
 import React, { useState } from "react";
 import { Alert, Button, ScrollView, StyleSheet, Text, TextInput } from "react-native";
-import app from "../firebase/conf_firebase"; // importa la configuracion de firebase
+
+import app from "../credenciales/conf_firebase"; // importa la configuracion de firebase
 export const db = getFirestore(app); // inicializa la base de datos
 
 export default function AnimalsPage() {

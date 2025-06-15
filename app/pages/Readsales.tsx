@@ -6,7 +6,7 @@ import { useFocusEffect } from "@react-navigation/native";
 import { collection, getDocs, getFirestore } from "firebase/firestore";
 import React, { useState } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
-import app from "../firebase/conf_firebase";
+import app from "../credenciales/conf_firebase";
 
 const db = getFirestore(app);
 

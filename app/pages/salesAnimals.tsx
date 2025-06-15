@@ -3,8 +3,8 @@
 import { Link, useLocalSearchParams } from "expo-router"; // Importa Link para navegación
 import { collection, doc, getDoc, getDocs, getFirestore, setDoc } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
-import { Alert, Button, ScrollView, StyleSheet, Text, TextInput } from "react-native";
-import app from "../firebase/conf_firebase";
+import { Alert, Button, ImageBackground, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+import app from "../credenciales/conf_firebase";
 
 export const db = getFirestore(app);
 
@@ -82,52 +82,72 @@ export default function SalesScreen() {
   };
 
   return (
-    <ScrollView style={styles.container}>
-      {animal && (
-        <>
-          <Text style={styles.animalName}>Código: {animal.id}</Text>
-          <Text style={styles.animalName}>Animal: {animal.tipo}</Text>
-        </>
-      )}
-      <Text style={styles.title}>Registrar Venta</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Fecha de Venta (YYYY-MM-DD)"
-        value={venta.fecha_venta}
-        onChangeText={(text) => setVenta({ ...venta, fecha_venta: text })}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Comprador"
-        value={venta.comprador}
-        onChangeText={(text) => setVenta({ ...venta, comprador: text })}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Precio de Venta"
-        keyboardType="numeric"
-        value={venta.precio_venta}
-        onChangeText={(text) => setVenta({ ...venta, precio_venta: text })}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Forma de Pago"
-        value={venta.forma_pago}
-        onChangeText={(text) => setVenta({ ...venta, forma_pago: text })}
-      />
-      <Button title="Añadir Venta" onPress={handleAddVenta} />
-      <Link href="/pages/Readsales" style={styles.link}>
-        Ver listado de ventas
-      </Link>
-    </ScrollView>
+    <ImageBackground
+      source={{
+        uri: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+      }}
+      style={styles.background}
+      resizeMode="cover"
+    >
+      <View style={styles.overlay}>
+        <ScrollView contentContainerStyle={styles.container}>
+          {animal && (
+            <>
+              <Text style={styles.animalName}>Código: {animal.id}</Text>
+              <Text style={styles.animalName}>Animal: {animal.tipo}</Text>
+            </>
+          )}
+          <Text style={styles.title}>Registrar Venta</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Fecha de Venta (YYYY-MM-DD)"
+            value={venta.fecha_venta}
+            onChangeText={(text) => setVenta({ ...venta, fecha_venta: text })}
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Comprador"
+            value={venta.comprador}
+            onChangeText={(text) => setVenta({ ...venta, comprador: text })}
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Precio de Venta"
+            keyboardType="numeric"
+            value={venta.precio_venta}
+            onChangeText={(text) => setVenta({ ...venta, precio_venta: text })}
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Forma de Pago"
+            value={venta.forma_pago}
+            onChangeText={(text) => setVenta({ ...venta, forma_pago: text })}
+          />
+          <Button title="Añadir Venta" onPress={handleAddVenta} />
+          <Link href="/pages/Readsales" style={styles.link}>
+            Ver listado de ventas
+          </Link>
+        </ScrollView>
+      </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  background: {
     flex: 1,
+    width: "100%",
+    height: "100%",
+  },
+  overlay: {
+    flex: 1,
+    backgroundColor: "rgba(255,255,255,0.92)",
+    justifyContent: "center",
+  },
+  container: {
+    flexGrow: 1,
     padding: 20,
-    backgroundColor: "#fff",
+    justifyContent: "center",
   },
   animalName: {
     fontSize: 22,
@@ -139,6 +159,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     marginBottom: 10,
+    textAlign: "center",
   },
   input: {
     borderWidth: 1,
@@ -146,6 +167,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 10,
     marginBottom: 10,
+    backgroundColor: "#f5f5f5",
   },
   link: {
     marginTop: 20,

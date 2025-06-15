@@ -6,7 +6,7 @@ import { useLocalSearchParams, useRouter } from "expo-router"; // Cambia a useLo
 import { doc, getDoc, getFirestore, updateDoc } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { Alert, Button, ScrollView, TextInput, View } from "react-native";
-import app from "../firebase/conf_firebase";
+import app from "../credenciales/conf_firebase";
 
 const db = getFirestore(app);
 

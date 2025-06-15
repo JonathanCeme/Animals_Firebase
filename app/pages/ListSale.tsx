@@ -3,10 +3,10 @@
 
 import { useFocusEffect } from "@react-navigation/native"; // Importa useFocusEffect
 import { useRouter } from "expo-router"; // Importa el router de Expo Router
-import { collection, deleteDoc, doc, getDocs, getFirestore, query, where } from "firebase/firestore";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 import React, { useState } from "react";
 import { Alert, Button, ScrollView, StyleSheet, Text, View } from "react-native";
-import app from "../firebase/conf_firebase";
+import app from "../credenciales/conf_firebase";
 
 const db = getFirestore(app);
 
